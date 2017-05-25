@@ -1,36 +1,8 @@
 <div class="center">
 	<h1>todos</h1>
 	<div class="todoapp-container">
-	  <div id="inputarea">
-	    <input type="text" placeholder="What needs to be done?"/>
-	  </div>
-	  <div id="taskarea">
-	    <div class="item">
-	      <input type="checkbox" id="item1"/>
-	      <label for="item1">
-	        <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 -18 100 135"><circle cx="45" cy="70" r="45" fill="none" stroke="#ededed" stroke-width="3"/></svg>'/>
-	      </label>
-	      <span class="item-text">item</span>
-	      <button class="remove">x</button>
-	    </div>
-	    <div class="item">
-	      <input type="checkbox" id="item2"/>
-	      <label for="item2">
-	        <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 -18 100 135"><circle cx="45" cy="70" r="45" fill="none" stroke="#ededed" stroke-width="3"/></svg>'/>
-	      </label>
-	      <span class="item-text">item</span>
-	      <button class="remove">x</button>
-	    </div>
-	  </div>
-	  <div id="footer">
-	  	<span># item left</span>
-	  	<ul>
-	  		<li><a href="">All</a></li>
-				<li><a href="">Active</a></li>
-				<li><a href="">Completed</a></li>
-	  	</ul>
-	  	<button>Clear completed</button>
-	  </div>
+		<app-add-todo></app-add-todo>
+	  <app-todo-list></app-todo-list>
+	  <app-todo-footer></app-todo-footer>
 	</div>
-	<!-- <app-add-todo></app-add-todo> -->
 </div>
