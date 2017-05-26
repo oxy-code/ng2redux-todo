@@ -20,7 +20,7 @@ const todo = (state: any = {}, action) => {
   }
 }
 
-const todos = (state = [], action) => {
+export const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -36,4 +36,8 @@ const todos = (state = [], action) => {
   }
 }
 
-export default todos
+export interface ITodoState{
+  id: number,
+  text: string,
+  completed: boolean
+}
