@@ -1,4 +1,14 @@
-const todo = (state: any = {}, action) => {
+export interface ITodoState{
+  id: number,
+  text: string,
+  completed: boolean
+}
+
+export const INIT_TODO: ITodoState = {
+  id: 0, text:'', completed: false
+};
+
+const todo = (state: ITodoState = INIT_TODO, action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return {
@@ -20,7 +30,7 @@ const todo = (state: any = {}, action) => {
   }
 }
 
-export const todos = (state = [], action) => {
+export const todos = (state:ITodoState[] = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -34,10 +44,4 @@ export const todos = (state = [], action) => {
     default:
       return state
   }
-}
-
-export interface ITodoState{
-  id: number,
-  text: string,
-  completed: boolean
 }

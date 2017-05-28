@@ -9,7 +9,7 @@ import { AddTodoComponent } from './add-todo/add-todo.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoItemComponent } from './todo-list/todo-item/todo-item.component';
 import { TodoFooterComponent } from './todo-footer/todo-footer.component';
-import { IAppState } from './@store/reducers';
+import { IAppState,INITIAL_STATE,rootReducers } from './@store/reducers';
 
 
 @NgModule({
@@ -30,5 +30,7 @@ import { IAppState } from './@store/reducers';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private ngRedux:NgRedux<IAppState>){}
+  constructor(private ngRedux:NgRedux<IAppState>){
+    ngRedux.configureStore(rootReducers,INITIAL_STATE)
+  }
 }

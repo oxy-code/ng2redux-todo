@@ -1,16 +1,17 @@
-//import { combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 
 import { todos, ITodoState } from './todos';
-//import { visibilityFilter } from './visibilityFilter';
+import { visibilityFilter } from './visibilityFilter';
 
 export interface IAppState {
 	todos: ITodoState[],
 	visibilityFilter: string
-}
+};
 
-/*const todoApp = combineReducers({
-  todos,
-  visibilityFilter
-})
+export const INITIAL_STATE:IAppState = {
+	'todos': [],
+	'visibilityFilter': ''
+};
 
-export {todoApp as rootReducers}*/
+const allReducers = Object.assign({}, todos,visibilityFilter);
+export const rootReducers = combineReducers(allReducers);
