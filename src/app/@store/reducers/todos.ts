@@ -2,7 +2,7 @@ export interface ITodoState{
   id: number,
   text: string,
   completed: boolean
-}
+};
 
 export const INIT_TODO: ITodoState = {
   id: 0, text:'', completed: false
@@ -31,6 +31,9 @@ const todo = (state: ITodoState = INIT_TODO, action) => {
 }
 
 export const todos = (state:ITodoState[] = [], action) => {
+  if (!action || !action.type) {
+    return state;
+  }
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -41,6 +44,8 @@ export const todos = (state:ITodoState[] = [], action) => {
       return state.map(t =>
         todo(t, action)
       )
+    case 'DELETE_TODO':
+      return state.filter(t => {return t.id !== action.id})
     default:
       return state
   }

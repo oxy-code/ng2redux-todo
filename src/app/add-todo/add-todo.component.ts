@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgRedux } from '@angular-redux/store';
+
+import { IAppState } from '../@store/reducers';
+import { addTodo } from '../@store/actions/todo.action';
 
 @Component({
   selector: 'app-add-todo',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTodoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ngRedux:NgRedux<IAppState>) { }
 
   ngOnInit() {
+  }
+
+  addItem(title: String): void {
+  	if(title.length){
+  		this.ngRedux.dispatch(addTodo(title));
+  	}
   }
 
 }

@@ -1,8 +1,8 @@
 <div class="item">
-  <input type="checkbox" id="item1"/>
-  <label for="item1">
+  <input type="checkbox" [id]="'todo'+item.id" [checked]="item.completed" (change)="toggleCheck()"/>
+  <label [for]="'todo'+item.id">
     <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 -18 100 135"><circle cx="45" cy="70" r="45" fill="none" stroke="#ededed" stroke-width="3"/></svg>'/>
   </label>
-  <span class="item-text">item</span>
-  <button class="remove">x</button>
+  <span class="item-text" [ngClass]="{'completed': item.completed}">{{item.text}}</span>
+  <button class="remove" (click)="removeItem()">x</button>
 </div>

@@ -13,5 +13,7 @@ export const INITIAL_STATE:IAppState = {
 	'visibilityFilter': ''
 };
 
-const allReducers = Object.assign({}, todos,visibilityFilter);
-export const rootReducers = combineReducers(allReducers);
+export const rootReducers = combineReducers<IAppState>({
+	todos,
+	visibilityFilter
+});

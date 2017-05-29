@@ -1,4 +1,4 @@
-let nextTodoId = 0
+let nextTodoId = 1;
 export const addTodo = (text) => {
   return {
     type: 'ADD_TODO',
@@ -17,6 +17,13 @@ export const setVisibilityFilter = (filter) => {
 export const toggleTodo = (id) => {
   return {
     type: 'TOGGLE_TODO',
+    id
+  }
+}
+
+export const deleteTodo = (id) => {
+  return {
+    type: 'DELETE_TODO',
     id
   }
 }

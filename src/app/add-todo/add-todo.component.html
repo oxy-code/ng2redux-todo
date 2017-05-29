@@ -1,3 +1,5 @@
 <div id="inputarea">
-  <input type="text" placeholder="What needs to be done?"/>
+	<input type="checkbox" id="toggle-all"/>
+	<!-- <label for="toggle-all">></label> -->
+  <input type="text" #title placeholder="What needs to be done?" (keyup.enter)="addItem(title.value);title.value='';"/>
 </div>

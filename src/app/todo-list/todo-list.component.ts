@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { NgRedux,select } from '@angular-redux/store';
+import { Observable } from 'rxjs';
+
+import { IAppState } from '../@store/reducers';
+import { ITodoState } from '../@store/reducers/todos';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,7 +12,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListComponent implements OnInit {
 
-  constructor() { }
+	@select('todos') readonly todos$: Observable<ITodoState[]>
+
+  constructor(private ngRedux:NgRedux<IAppState>) {
+  }
 
   ngOnInit() {
   }

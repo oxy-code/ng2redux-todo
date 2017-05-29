@@ -11,7 +11,6 @@ import { TodoItemComponent } from './todo-list/todo-item/todo-item.component';
 import { TodoFooterComponent } from './todo-footer/todo-footer.component';
 import { IAppState,INITIAL_STATE,rootReducers } from './@store/reducers';
 
-
 @NgModule({
   declarations: [
     AppComponent,
