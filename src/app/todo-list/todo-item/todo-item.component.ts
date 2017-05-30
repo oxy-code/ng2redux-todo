@@ -1,8 +1,7 @@
 import { Component,Input } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 
-import { IAppState } from '../../@store/reducers';
-import { ITodoState } from '../../@store/reducers/todos';
+import { IAppState,ITodoState } from '../../@store/reducers';
 import { toggleTodo,deleteTodo } from '../../@store/actions/todo.action';
 
 @Component({

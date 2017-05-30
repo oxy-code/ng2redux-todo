@@ -46,6 +46,8 @@ export const todos = (state:ITodoState[] = [], action) => {
       )
     case 'DELETE_TODO':
       return state.filter(t => {return t.id !== action.id})
+    case 'CLEAR_COMPLETED_TODO':
+      return state.filter(t => {return t.completed !== true})
     default:
       return state
   }

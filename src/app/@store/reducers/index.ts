@@ -3,17 +3,20 @@ import { combineReducers } from 'redux';
 import { todos, ITodoState } from './todos';
 import { visibilityFilter } from './visibilityFilter';
 
-export interface IAppState {
+
+interface IAppState {
 	todos: ITodoState[],
 	visibilityFilter: string
 };
 
-export const INITIAL_STATE:IAppState = {
+const INITIAL_STATE:IAppState = {
 	'todos': [],
-	'visibilityFilter': ''
+	'visibilityFilter': 'SHOW_ALL'
 };
 
-export const rootReducers = combineReducers<IAppState>({
+const rootReducers = combineReducers<IAppState>({
 	todos,
 	visibilityFilter
 });
+
+export {ITodoState, IAppState, INITIAL_STATE, rootReducers};

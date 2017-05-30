@@ -1,9 +1,9 @@
 <div id="footer">
-	<span># item left</span>
+	<span>{{activeCount}} item left</span>
 	<ul>
-		<li><a href="">All</a></li>
+		<li><a href="">All{{ ' ( ' + allCount + ' )'}}</a></li>
 		<li><a href="">Active</a></li>
-		<li><a href="">Completed</a></li>
+		<li><a href="">Completed{{ ' ( ' + completedCount + ' )'}}</a></li>
 	</ul>
-	<button>Clear completed</button>
+	<button (click)="clearCompletedTodos()" [disabled]="completedCount === 0 ? 'disabled' : ''">Clear completed</button>
 </div>

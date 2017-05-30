@@ -2,8 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { NgRedux,select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
 
-import { IAppState } from '../@store/reducers';
-import { ITodoState } from '../@store/reducers/todos';
+import { IAppState,ITodoState } from '../@store/reducers';
 
 @Component({
   selector: 'app-todo-list',
