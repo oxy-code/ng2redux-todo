@@ -33,3 +33,9 @@ export const clearCompletedTodo = () => {
     type: 'CLEAR_COMPLETED_TODO'
   }
 }
+
+export const toggleAllTodo = () => {
+  return {
+    type: 'TOGGLE_ALL_TODO'
+  }
+}

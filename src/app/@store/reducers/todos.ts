@@ -48,6 +48,8 @@ export const todos = (state:ITodoState[] = [], action) => {
       return state.filter(t => {return t.id !== action.id})
     case 'CLEAR_COMPLETED_TODO':
       return state.filter(t => {return t.completed !== true})
+    case 'TOGGLE_ALL_TODO':
+      return state.map(t => todo(t, {id: t.id, type: 'TOGGLE_TODO'}))
     default:
       return state
   }

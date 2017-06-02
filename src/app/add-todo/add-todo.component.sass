@@ -1,20 +1,37 @@
 @import "../../sass-util/variables"
+@import "../../sass-util/mixins"
 
 #inputarea
 	background: white
 	border-bottom: 1px solid $borderColor
-	/* &:before
-		content: '\2304'
-		color: #DDDDDD
-		font-size: 50px
-		line-height: 30px */
+	position: relative
+
+	input[type=checkbox]
+		display: none
+
+		&:checked ~ label
+			color: $primaryColor
+
+	label
+		color: #EEEEEE
+		display: inline-block
+		position: absolute
+		left: 14px
+		-webkit-transform: rotate(90deg) scale(2)
+		-moz-transform: rotate(90deg) scale(2)
+		transform: rotate(90deg) scale(2)
+		font-size: 31px
+		width: 12px
+		height: 53px
+		+disable-selection()
 
 	input[type=text]
-		width: 88%
+		width: 85%
 		height: $rowHeight
-		font-size: 25px
+		font-size: 20px
 		color: #444444
 		border: 0
+		margin-left: 75px
 
 		&::-webkit-input-placeholder
 			color: #DDDDDD

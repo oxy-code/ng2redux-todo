@@ -1,5 +1,5 @@
 <div id="inputarea">
-	<input type="checkbox" id="toggle-all"/>
-	<!-- <label for="toggle-all">></label> -->
+	<input type="checkbox" id="toggle-all" [disabled]="isTodosExist === false" (change)="toggleAllCheck()"/>
+	<label for="toggle-all">></label>
   <input type="text" #title placeholder="What needs to be done?" (keyup.enter)="addItem(title.value);title.value='';"/>
 </div>

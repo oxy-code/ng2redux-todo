@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { IAppState } from '../@store/reducers';
 import { ITodoState } from '../@store/reducers/todos';
-import { clearCompletedTodo } from '../@store/actions/todo.action';
+import { clearCompletedTodo,setVisibilityFilter } from '../@store/actions/todo.action';
 
 @Component({
   selector: 'app-todo-footer',
@@ -13,8 +13,10 @@ import { clearCompletedTodo } from '../@store/actions/todo.action';
 })
 export class TodoFooterComponent implements OnInit {
 
-	@select('todos') readonly todos$: Observable<ITodoState[]>;
-	allCount: number = 0;
+  @select('todos') readonly todos$: Observable<ITodoState[]>;
+	@select('visibilityFilter') readonly filter$: Observable<string>;
+
+  allCount: number = 0;
 	activeCount: number = 0;
 	completedCount: number = 0;
 
@@ -22,6 +24,7 @@ export class TodoFooterComponent implements OnInit {
 
   ngOnInit() {
   	this.todos$.subscribe(items => {
+      this.allCount = items.length;
   		this.activeCount = items.filter(i => {return i.completed === false}).length;
   		this.completedCount = items.filter(i => {return i.completed === true}).length;
   	});
@@ -29,6 +32,18 @@ export class TodoFooterComponent implements OnInit {
 
   clearCompletedTodos():void{
   	this.ngRedux.dispatch(clearCompletedTodo());
+  }
+
+  showActive(): void{
+    this.ngRedux.dispatch(setVisibilityFilter('SHOW_ACTIVE'));
+  }
+
+  showCompleted(): void{
+    this.ngRedux.dispatch(setVisibilityFilter('SHOW_COMPLETED'));
+  }
+
+  showAll(): void{
+    this.ngRedux.dispatch(setVisibilityFilter('SHOW_ALL'));
   }
 
 }

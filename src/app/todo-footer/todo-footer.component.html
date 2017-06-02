@@ -1,9 +1,19 @@
 <div id="footer">
 	<span>{{activeCount}} item left</span>
 	<ul>
-		<li><a href="">All{{ ' ( ' + allCount + ' )'}}</a></li>
-		<li><a href="">Active</a></li>
-		<li><a href="">Completed{{ ' ( ' + completedCount + ' )'}}</a></li>
+		<li>
+			<a (click)="showAll()" [ngClass]="{'active': (filter$ | async)=== 'SHOW_ALL'}">
+				All{{ ' ( ' + allCount + ' )'}}
+			</a>
+		</li>
+		<li>
+			<a (click)="showActive()" [ngClass]="{'active': (filter$ | async)=== 'SHOW_ACTIVE'}">Active</a>
+		</li>
+		<li>
+			<a (click)="showCompleted()" [ngClass]="{'active': (filter$ | async)=== 'SHOW_COMPLETED'}">
+				Completed{{ ' ( ' + completedCount + ' )'}}
+			</a>
+		</li>
 	</ul>
 	<button (click)="clearCompletedTodos()" [disabled]="completedCount === 0 ? 'disabled' : ''">Clear completed</button>
 </div>
